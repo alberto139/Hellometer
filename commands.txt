@@ -1,0 +1,12 @@
+python3 object_detection/legacy/train.py -logstderr \
+--train_dir=/home/alberto/Desktop/hellometer/training_out/ \
+--pipeline_config_path=/home/alberto/Desktop/hellometer/ssd_mobilenet_v1_fpn/pipeline.config
+
+python3 object_detection/export_inference_graph.py --input_type image_tensor \
+--pipeline_config_path /home/alberto/Desktop/hellometer/ssd_mobilenet_v1_fpn/pipeline.config \
+--trained_checkpoint_prefix /home/alberto/Desktop/hellometer/training_out/model.ckpt-1767 \
+--output_directory /home/alberto/Desktop/hellometer/frozen_models
+
+protoc object_detection/protos/*.proto --python_out=.
+
+export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
