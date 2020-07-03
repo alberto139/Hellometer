@@ -9,7 +9,7 @@ import pandas as pd
 
 
 
-def class_count_area(aois, detections, df, upload, frame_time):
+def class_count_area(aois, detections, upload, frame_time):
 
     # iterate over all areas and all objects
     # if an object is seen in an area for the first time, keep track of it
